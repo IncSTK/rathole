@@ -1,0 +1,33 @@
+
+[ RatHole 1.2 ]
+
+About
+-----
+RatHole is a unix backdoor which compiles cleanly on standard linux and
+openbsd (probably other bsd flavours also) without addicional libraries. 
+It features blowfish encryption, process name hiding and definition of a
+prefered shell. When a client connects to the backdoor a new shell process
+and two pipe files are created. The I/O of the shell is duped to the pipes
+and the daemon encrypts the communication.
+
+
+Install
+-------
+There's a makefile to build it. Just type 'make'. You'll get two files:
+'rat' and 'hole'. The hole is the backdoor and the rat is the client. If
+you prefer to transfer a single source file into your newly compromised
+server, merge the contents of blowfish.c + hole.c and compile it by hand.
+Don't forget to set your own #defines, like the port and password, on
+hole.c! By the way, if you fail to enter the correct password shit will
+fly and unexpected evil things might fall upon you. Also rename the hole
+file and use the same name as your fake process.
+
+
+Credits
+-------
+The blowfish code was riped from icmpchat. Everything else was coded
+during a cold winter afternoon back in 2004. This is work in progress.
+You're free to rip it apart and fuck it sideways.
+
+--
+Incognito/STK (2004)
